@@ -1,0 +1,16 @@
+.DS_Store
+tmp
+AGENTS.md
+CLAUDE.md
+.claude
+__pycache__
+.venv
+dist
+build
+*.log
+.pytest_cache
+coverage
+*.egg-info
+node_modules
+site
+*.local.json

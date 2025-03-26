@@ -1,0 +1,17 @@
+[project]
+name = "booklibrary"
+version = "0.0.1"
+description = "A tiny personal book library CLI"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  {name = "Joshua Brooks", email = "WetzellLemarie6253@hotmail.com"},
+]
+dependencies = []
+
+[project.scripts]
+booklib = "booklib.cli:main"
+
+[tool.black]
+line-length = 100
+
