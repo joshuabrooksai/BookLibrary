@@ -10,7 +10,15 @@
 
 ## 快速开始（暂定）
 - 依赖：Python 3.10+
-- 运行：`python -m booklib --help`
+- 安装（开发模式）：`pip install -e .`
+- 运行：`booklib --help`
+
+示例：
+
+```
+booklib add "Clean Code" "Robert C. Martin" --tags coding,craft
+booklib list
+booklib update 1 --rating 4.5 --status done
+```
 
 后续会补充更多使用说明与示例。
-
