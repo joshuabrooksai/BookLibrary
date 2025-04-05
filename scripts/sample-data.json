@@ -1,0 +1,9 @@
+{
+  "seq": 3,
+  "items": [
+    {"id": 1, "title": "Clean Code", "author": "Robert C. Martin", "tags": ["craft"], "rating": 4.5, "status": "done"},
+    {"id": 2, "title": "Designing Data-Intensive Applications", "author": "Martin Kleppmann", "tags": ["systems"], "rating": 5, "status": "reading"},
+    {"id": 3, "title": "The Pragmatic Programmer", "author": "Hunt & Thomas", "tags": ["programming"], "rating": 4.8, "status": "done"}
+  ]
+}
+
