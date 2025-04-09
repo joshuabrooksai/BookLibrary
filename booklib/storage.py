@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass, asdict
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Optional, Iterable
 
 
 DATA_DIR = Path.home() / ".booklibrary"
@@ -40,10 +40,10 @@ def list_books() -> List[Book]:
   return [Book(**b) for b in data.get("items", [])]
 
 
-def add_book(title: str, author: str, tags: List[str] | None = None) -> Book:
+def add_book(title: str, author: str, tags: Iterable[str] | None = None) -> Book:
   data = _load()
   seq = int(data.get("seq", 0)) + 1
-  book = Book(id=seq, title=title, author=author, tags=tags or [])
+  book = Book(id=seq, title=title, author=author, tags=list(tags or []))
   data["seq"] = seq
   data.setdefault("items", []).append(asdict(book))
   _save(data)
@@ -79,4 +79,3 @@ def delete_book(book_id: int) -> bool:
     _save(data)
     return True
   return False
-
