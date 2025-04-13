@@ -19,6 +19,8 @@ def main(argv: List[str] | None = None) -> None:
 
   sub.add_parser("list", help="List all books")
 
+  sub.add_parser("stats", help="Show simple stats")
+
   p_add = sub.add_parser("add", help="Add a new book")
   p_add.add_argument("title")
   p_add.add_argument("author")
@@ -72,9 +74,20 @@ def main(argv: List[str] | None = None) -> None:
     print("ok" if ok else "not found")
     return
 
+  if args.cmd == "stats":
+    books = list_books()
+    total = len(books)
+    done = sum(1 for b in books if b.status == "done")
+    reading = sum(1 for b in books if b.status == "reading")
+    unread = sum(1 for b in books if b.status == "unread")
+    avg = (
+      sum(b.rating for b in books if isinstance(b.rating, (int, float))) / max(1, sum(1 for b in books if b.rating is not None))
+    )
+    print(f"total={total} done={done} reading={reading} unread={unread} avg_rating={avg:.2f}")
+    return
+
   parser.print_help()
 
 
 if __name__ == "__main__":
   main()
-
